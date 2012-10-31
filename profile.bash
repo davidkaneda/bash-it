@@ -17,15 +17,14 @@ export BASH_IT_THEME='dave'
 export GIT_HOSTING='git@git.domain.com'
 
 # Set my editor and git editor
-export EDITOR="/usr/bin/mate -w"
-export GIT_EDITOR='/usr/bin/mate -w'
+export EDITOR='subl -w'
+export GIT_EDITOR='subl -w'
 
 # Set the path nginx
 export NGINX_PATH='/opt/nginx'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
-
 
 # Change this to your console based IRC client of choice.
 
