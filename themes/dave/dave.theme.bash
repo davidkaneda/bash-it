@@ -18,7 +18,7 @@ function node_version() {
 }
 # "${light_blue}$(node_version)  "
 function prompt_command() {
-    PS1="\n${blue}\h ${cyan}— ${light_blue}\w\n${bold_cyan}$(scm_char)${green}$(scm_prompt_info) ${red}→${reset_color} "
+    PS1="\n${orange}\h ${black}— \w\n${bold_yellow}$(scm_char)${green}$(scm_prompt_info) ${yellow}→${reset_color} "
 }
 
 PROMPT_COMMAND=prompt_command;
