@@ -3,8 +3,13 @@
 # Load RVM, if you are using it
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
+# Load up Appurify VENV
+source ~/Dropbox/Sites/appurify_env/bin/activate
+
 # Add rvm gems and nginx to the path
-export PATH=$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$PATH:~/.gem/ruby/1.8/bin:/opt/nginx/sbin
+
+export PATH=$PATH:/Applications/MAMP/Library/bin
 
 # Path to the bash it configuration
 export BASH_IT=$HOME/.bash_it
