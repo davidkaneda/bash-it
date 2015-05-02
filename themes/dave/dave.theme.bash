@@ -1,24 +1,21 @@
 #!/bin/bash
 SCM_THEME_PROMPT_DIRTY=" ${red}✗"
-SCM_THEME_PROMPT_CLEAN=" ${bold_green}✓"
-SCM_THEME_PROMPT_PREFIX=" |"
-SCM_THEME_PROMPT_SUFFIX="${green}|"
+SCM_THEME_PROMPT_CLEAN=" ${cyan}✓"
+SCM_THEME_PROMPT_PREFIX=""
+SCM_THEME_PROMPT_SUFFIX=""
 
-GIT_THEME_PROMPT_DIRTY=" ${red}✗"
+GIT_THEME_PROMPT_DIRTY=" ${bold_red}✗"
 GIT_THEME_PROMPT_CLEAN=" ${bold_green}✓"
-GIT_THEME_PROMPT_PREFIX=" ${green}|"
-GIT_THEME_PROMPT_SUFFIX="${green}|"
+GIT_THEME_PROMPT_PREFIX="${yellow}"
+GIT_THEME_PROMPT_SUFFIX=" "
 
 RVM_THEME_PROMPT_PREFIX="|"
 RVM_THEME_PROMPT_SUFFIX="|"
 
-function node_version() {
-    nv=$(node -v) || return
-    echo -e "$RVM_THEME_PROMPT_PREFIX$nv$RVM_THEME_PROMPT_SUFFIX"
-}
-# "${light_blue}$(node_version)  "
 function prompt_command() {
-    PS1="\n${orange}\h ${black}— \w\n${bold_yellow}$(scm_char)${green}$(scm_prompt_info) ${yellow}→${reset_color} "
+    PS1="\n${bold_black}\w ${black}at ${bold_black}$(date +%r)\\n$(scm_prompt_info)${yellow}→${reset_color}${normal} "
 }
 
 PROMPT_COMMAND=prompt_command;
+
+
