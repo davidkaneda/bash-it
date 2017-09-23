@@ -17,7 +17,7 @@ then
     # Setting $BASH to maintain backwards compatibility
     # TODO: warn users that they should upgrade their .bash_profile
     export BASH_IT=$BASH
-    export BASH=`bash -c 'echo $BASH'`
+    export BASH="$(bash -c 'echo $BASH')"
 fi
 
 # For backwards compatibility, look in old BASH_THEME location
@@ -34,10 +34,6 @@ source "${BASH_IT}/lib/composure.bash"
 # support 'plumbing' metadata
 cite _about _param _example _group _author _version
 
-# Load colors first so they can be use in base theme
-source "${BASH_IT}/themes/colors.theme.bash"
-source "${BASH_IT}/themes/base.theme.bash"
-
 # libraries, but skip appearance (themes) for now
 LIB="${BASH_IT}/lib/*.bash"
 APPEARANCE_LIB="${BASH_IT}/lib/appearance.bash"
@@ -49,10 +45,14 @@ do
 done
 
 # Load enabled aliases, completion, plugins
-for file_type in "aliases" "completion" "plugins"
+for file_type in "aliases" "plugins" "completion"
 do
   _load_bash_it_files $file_type
 done
+
+# Load colors first so they can be used in base theme
+source "${BASH_IT}/themes/colors.theme.bash"
+source "${BASH_IT}/themes/base.theme.bash"
 
 # appearance (themes) now, after all dependencies
 source $APPEARANCE_LIB
@@ -67,7 +67,7 @@ do
 done
 
 # Custom
-CUSTOM="${BASH_IT}/custom/*.bash"
+CUSTOM="${BASH_IT_CUSTOM:=${BASH_IT}/custom}/*.bash ${BASH_IT_CUSTOM:=${BASH_IT}/custom}/**/*.bash"
 for config_file in $CUSTOM
 do
   if [ -e "${config_file}" ]; then
